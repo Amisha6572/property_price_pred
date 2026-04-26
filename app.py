@@ -334,17 +334,18 @@ def load_artifacts():
     # Falls back to pickle only if joblib not available
     try:
         import joblib
-        if os.path.exists(f"{base}/best_model_joblib.joblib"):
-            model = joblib.load(f"{base}/best_model_joblib.joblib")
-        elif os.path.exists(f"{base}/best_model.pkl"):
-            with open(f"{base}/best_model.pkl", "rb") as f: 
+        if os.path.exists("best_model_joblib.joblib"):
+            model = joblib.load("best_model_joblib.joblib")
+        elif os.path.exists("best_model.pkl"):
+            with open("best_model.pkl", "rb") as f: 
                 model = pickle.load(f)
         else:
             raise FileNotFoundError("Neither best_model_joblib.joblib nor best_model.pkl found!")
     except ImportError:
         # Fallback if joblib not installed
-        with open(f"{base}/best_model.pkl", "rb") as f: 
+        with open("best_model.pkl", "rb") as f: 
             model = pickle.load(f)
+    
     
     with open(f"{base}/scaler.pkl",           "rb") as f: scaler        = pickle.load(f)
     with open(f"{base}/feature_columns.pkl",  "rb") as f: feature_cols  = pickle.load(f)
