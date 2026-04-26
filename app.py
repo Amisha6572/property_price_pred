@@ -347,13 +347,13 @@ def load_artifacts():
             model = pickle.load(f)
     
     
-    with open(f"{base}/scaler.pkl",           "rb") as f: scaler        = pickle.load(f)
-    with open(f"{base}/feature_columns.pkl",  "rb") as f: feature_cols  = pickle.load(f)
-    with open(f"{base}/label_encoder.pkl",    "rb") as f: le            = pickle.load(f)
-    with open(f"{base}/city_target_enc.pkl",  "rb") as f: city_target   = pickle.load(f)
-    with open(f"{base}/city_freq_enc.pkl",    "rb") as f: city_freq     = pickle.load(f)
-    with open(f"{base}/global_mean.pkl",      "rb") as f: global_mean   = pickle.load(f)
-    with open(f"{base}/model_results.pkl",    "rb") as f: results_df    = pickle.load(f)
+    with open("scaler.pkl", "rb") as f: scaler        = pickle.load(f)
+    with open("feature_columns.pkl", "rb") as f: feature_cols  = pickle.load(f)
+    with open("label_encoder.pkl", "rb") as f: le            = pickle.load(f)
+    with open("city_target_enc.pkl", "rb") as f: city_target   = pickle.load(f)
+    with open("city_freq_enc.pkl", "rb") as f: city_freq     = pickle.load(f)
+    with open("global_mean.pkl", "rb") as f: global_mean   = pickle.load(f)
+    with open("model_results.pkl", "rb") as f: results_df    = pickle.load(f)
     return model, scaler, feature_cols, le, city_target, city_freq, global_mean, results_df
 
 model, scaler, feature_cols, le, city_target, city_freq, global_mean, results_df = load_artifacts()
